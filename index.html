@@ -40,17 +40,17 @@
     </header>
 
     <section class="card" id="clueCard">
-      <div class="card-glow"></div>
+  <div class="card-glow"></div>
 
-      <div class="stage-badge">
-        <span class="stage-dot"></span>
-        Stage 01
-      </div>
+  <div class="stage-badge">
+    <span class="stage-dot"></span>
+    Stage <span id="stageNumberText">01</span>
+  </div>
 
-      <form class="clue-form" id="clueForm" autocomplete="off">
-        <label for="pinInput" class="field-label">Enter PIN</label>
-         
-        <!-- pin code -->
+  <form class="clue-form" id="clueForm" autocomplete="off">
+    <label for="pinInput" class="field-label">Enter PIN</label>
+
+     <!-- pin code -->
         <div class="input-wrapper">
           <input
             type="text"
@@ -65,21 +65,22 @@
           <span class="input-underline"></span>
         </div>
 
-        <button type="submit" class="unlock-btn" id="unlockBtn">
-          <span class="btn-label">Unlock Clue</span>
-          <span class="btn-icon">→</span>
-        </button>
 
-        <div class="message-area" id="messageArea" aria-live="polite"></div>
-      </form>
-    </section>
+    <button type="submit" class="unlock-btn" id="unlockBtn">
+      <span class="btn-label">Unlock Clue</span>
+      <span class="btn-icon">→</span>
+    </button>
+
+    <div class="message-area" id="messageArea" aria-live="polite"></div>
+  </form>
+</section>
 
     <footer class="footer">
       <p>Powered by <span class="club-name">EDC</span></p>
     </footer>
 
   </main>
-
+<script src="stages.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

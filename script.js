@@ -41,10 +41,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // (e.g. someone visits the page without scanning a QR code,
   // or the QR code points to a stage that doesn't exist)
   // =========================================================
+  // =========================================================
+  // STEP 3: Handle two different "no valid stage" cases
+  // =========================================================
+
+  // Case A: No "stage" parameter in the URL at all.
+  // This means the user opened the homepage directly
+  // (they haven't scanned a QR code yet). This is NOT an error —
+  // just show a friendly welcome/instruction message.
+  if (!stageParam) {
+    showMessage('Scan a QR code at your current location to begin.', 'error');
+    disableForm();
+    if (stageNumberText) {
+      stageNumberText.textContent = '--';
+    }
+    return;
+  }
+
+  // Case B: A "stage" parameter exists, but it doesn't match
+  // any stage in stages.js. This means the QR code itself is
+  // broken, fake, or mistyped — a genuine invalid QR code.
   if (!currentStage) {
     showMessage('Invalid QR Code', 'error');
     disableForm();
-    return; // Stop here — no valid stage to process
+    if (stageNumberText) {
+      stageNumberText.textContent = '--';
+    }
+    return;
   }
 
   // =========================================================
@@ -110,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Small delay so the user sees the success message
       // before the PDF opens in a new tab.
       setTimeout(() => {
-        window.open(currentStage.nextClue, '_blank');
+        window.location.href = currentStage.nextClue;
       }, 900);
     }
   }
