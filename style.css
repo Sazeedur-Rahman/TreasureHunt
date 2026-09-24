@@ -1,6 +1,3 @@
-/* ---------------------------------- */
-/* Reset & Base                       */
-/* ---------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -41,9 +38,7 @@ body {
   justify-content: center;
 }
 
-/* ---------------------------------- */
-/* Background Decoration              */
-/* ---------------------------------- */
+/* Background Decoration */
 .bg-decor {
   position: fixed;
   inset: 0;
@@ -110,9 +105,8 @@ body {
   50% { transform: translate(-30px, 40px) scale(0.9); }
 }
 
-/* ---------------------------------- */
 /* Club Logo                           */
-/* ---------------------------------- */
+
 .logo-wrapper {
   position: relative;
   width: 96px;
@@ -169,7 +163,6 @@ body {
     inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
-/* Fallback style if image fails to load */
 .club-logo.logo-fallback {
   display: flex;
   align-items: center;
@@ -205,9 +198,8 @@ body {
   }
 }
 
-/* ---------------------------------- */
+
 /* Page Layout                        */
-/* ---------------------------------- */
 .page {
   position: relative;
   z-index: 1;
@@ -226,9 +218,8 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------------------------------- */
 /* Hero                                */
-/* ---------------------------------- */
+
 .hero {
   margin-bottom: 32px;
 }
@@ -270,9 +261,8 @@ body {
   margin: 0 auto;
 }
 
-/* ---------------------------------- */
 /* Card - Glassmorphism                */
-/* ---------------------------------- */
+
 .card {
   position: relative;
   width: 100%;
