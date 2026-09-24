@@ -1,0 +1,514 @@
+/* ---------------------------------- */
+/* Reset & Base                       */
+/* ---------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #0f1420;
+  --accent-1: #7c5cff;
+  --accent-2: #35d6c4;
+  --accent-3: #ff6b9d;
+  --text-primary: #f4f5f9;
+  --text-secondary: #9aa3b8;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --success: #4ade80;
+  --error: #f87171;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------------------------------- */
+/* Background Decoration              */
+/* ---------------------------------- */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 20%, #131a2a 0%, var(--bg-primary) 60%);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  will-change: transform;
+}
+
+.orb-1 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, var(--accent-1), transparent 70%);
+  top: -100px;
+  left: -100px;
+  animation: float1 14s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, var(--accent-2), transparent 70%);
+  bottom: -80px;
+  right: -80px;
+  animation: float2 16s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, var(--accent-3), transparent 70%);
+  top: 40%;
+  left: 60%;
+  animation: float3 18s ease-in-out infinite;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 75%);
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 60px) scale(1.1); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -30px) scale(1.15); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 40px) scale(0.9); }
+}
+
+/* ---------------------------------- */
+/* Club Logo                           */
+/* ---------------------------------- */
+.logo-wrapper {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: logoFadeIn 0.9s ease both;
+}
+
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: translateY(-16px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.logo-glow {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.35), transparent 70%);
+  filter: blur(14px);
+  animation: logoPulse 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes logoPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.club-logo {
+  position: relative;
+  z-index: 1;
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 4px;
+  background:
+    linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+    linear-gradient(135deg, var(--accent-1), var(--accent-2)) border-box;
+  border: 2px solid transparent;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.club-logo:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow:
+    0 12px 30px rgba(124, 92, 255, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Fallback style if image fails to load */
+.club-logo.logo-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  background:
+    linear-gradient(135deg, rgba(124,92,255,0.25), rgba(53,214,196,0.25)) padding-box,
+    linear-gradient(135deg, var(--accent-1), var(--accent-2)) border-box;
+}
+
+/* Responsive sizing */
+@media (max-width: 360px) {
+  .logo-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+  .club-logo {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (min-width: 900px) {
+  .logo-wrapper {
+    width: 108px;
+    height: 108px;
+  }
+  .club-logo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ---------------------------------- */
+/* Page Layout                        */
+/* ---------------------------------- */
+.page {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  padding: 32px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: pageFadeIn 0.9s ease both;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------- */
+/* Hero                                */
+/* ---------------------------------- */
+.hero {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.title-icon {
+  font-size: 0.9em;
+  filter: drop-shadow(0 0 20px rgba(255, 200, 80, 0.5));
+  animation: bounce 3s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-4deg); }
+}
+
+.title-text {
+  background: linear-gradient(135deg, #ffffff 0%, #b8c2ff 50%, var(--accent-1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* ---------------------------------- */
+/* Card - Glassmorphism                */
+/* ---------------------------------- */
+.card {
+  position: relative;
+  width: 100%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px 30px;
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  animation: cardFadeIn 1s 0.15s ease both;
+}
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.card-glow {
+  position: absolute;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 220px;
+  background: radial-gradient(ellipse at center, rgba(124, 92, 255, 0.35), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Stage badge */
+.stage-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(124,92,255,0.18), rgba(53,214,196,0.18));
+  border: 1px solid rgba(255,255,255,0.14);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #d6d9f5;
+  margin-bottom: 26px;
+}
+
+.stage-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 10px var(--accent-2);
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* Form */
+.clue-form {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field-label {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+.input-wrapper {
+  width: 100%;
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.pin-input {
+  width: 100%;
+  padding: 18px 20px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  text-align: center;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.045);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.pin-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.4em;
+}
+
+.pin-input:focus {
+  border-color: var(--accent-1);
+  background: rgba(124, 92, 255, 0.08);
+  box-shadow:
+    0 0 0 4px rgba(124, 92, 255, 0.18),
+    0 0 24px rgba(124, 92, 255, 0.25);
+}
+
+/* Unlock button */
+.unlock-btn {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 24px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0a0e17;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  box-shadow: 0 10px 30px rgba(124, 92, 255, 0.35);
+  min-height: 58px;
+}
+
+.unlock-btn .btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.unlock-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(124, 92, 255, 0.5);
+  filter: brightness(1.06);
+}
+
+.unlock-btn:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+.unlock-btn:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: 0 6px 18px rgba(124, 92, 255, 0.4);
+}
+
+.unlock-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  border-radius: 50%;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.unlock-btn.ripple::after {
+  transform: scale(3);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Message area */
+.message-area {
+  min-height: 22px;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.message-area.success { color: var(--success); }
+.message-area.error { color: var(--error); }
+
+/* ---------------------------------- */
+/* Footer                              */
+/* ---------------------------------- */
+.footer {
+  margin-top: 28px;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  animation: pageFadeIn 1s 0.3s ease both;
+}
+
+.club-name {
+  color: #c7cdf5;
+  font-weight: 600;
+}
+
+/* ---------------------------------- */
+/* Responsive Adjustments              */
+/* ---------------------------------- */
+@media (min-width: 480px) {
+  .card {
+    padding: 44px 40px 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .pin-input {
+    font-size: 1.2rem;
+    letter-spacing: 0.35em;
+  }
+  .title {
+    gap: 8px;
+  }
+}
+
+@media (min-width: 900px) {
+  .page {
+    max-width: 480px;
+  }
+  .card {
+    padding: 48px 46px 40px;
+  }
+}
+
+/* Respect motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
