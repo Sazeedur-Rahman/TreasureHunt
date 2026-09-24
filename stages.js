@@ -20,67 +20,67 @@ const stages = {
   },
 
   "02": {
-    pin: "BALL07",
+    pin: "EDC07",
     nextClue: "clues/stage03.pdf"
   },
 
   "03": {
-    pin: "LAB22",
+    pin: "EDC22",
     nextClue: "clues/stage04.pdf"
   },
 
   "04": {
-    pin: "TREE45",
+    pin: "EDC45",
     nextClue: "clues/stage05.pdf"
   },
 
   "05": {
-    pin: "GATE18",
+    pin: "EDC18",
     nextClue: "clues/stage06.pdf"
   },
 
   "06": {
-    pin: "DESK63",
+    pin: "EDC63",
     nextClue: "clues/stage07.pdf"
   },
 
   "07": {
-    pin: "CLOCK09",
+    pin: "EDC09",
     nextClue: "clues/stage08.pdf"
   },
 
   "08": {
-    pin: "STAIR03",
+    pin: "EDC03",
     nextClue: "clues/stage09.pdf"
   },
 
   "09": {
-    pin: "FIELD05",
+    pin: "EDC05",
     nextClue: "clues/stage10.pdf"
   },
 
   "10": {
-    pin: "COURT08",
+    pin: "EDC08",
     nextClue: "clues/stage11.pdf"
   },
 
   "11": {
-    pin: "STAGE02",
+    pin: "EDC02",
     nextClue: "clues/stage12.pdf"
   },
 
   "12": {
-    pin: "HALL77",
+    pin: "EDC77",
     nextClue: "clues/stage13.pdf"
   },
 
   "13": {
-    pin: "ROOF14",
+    pin: "EDC14",
     nextClue: "clues/stage14.pdf"
   },
 
   "14": {
-    pin: "GARDEN6",
+    pin: "EDC6",
     nextClue: "clues/stage15.pdf"
   },
 
