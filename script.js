@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // STEP 4: Valid stage — update the "Stage XX" badge on screen
   // =========================================================
   if (stageNumberText) {
-    stageNumberText.textContent = stageParam;
+    stageNumberText.textContent = currentStage.stage;
   }
 
   // =========================================================
