@@ -52,7 +52,7 @@ const stages = {
 //------------------2nd route-------------------//
   "lmtzx7": {
     stage: "I",
-    pin: "EDC09",
+    pin: "EDC99",
     nextClue: "clues/bcr.pdf"
   },
 
