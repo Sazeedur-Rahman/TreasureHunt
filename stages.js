@@ -51,51 +51,39 @@ const stages = {
   },
 //------------------2nd route-------------------//
   "lmtzx7": {
-    stage: "07",
+    stage: "I",
     pin: "EDC09",
-    nextClue: "clues/stage08.pdf"
+    nextClue: "clues/bcr.pdf"
   },
 
   "pqxdb8": {
-    stage: "08",
-    pin: "EDC03",
-    nextClue: "clues/stage09.pdf"
+    stage: "II",
+    pin: "EDC77",
+    nextClue: "clues/chemylaby.pdf"
   },
 
   "rszfd9": {
-    stage: "09",
-    pin: "EDC05",
-    nextClue: "clues/stage10.pdf"
+    stage: "III",
+    pin: "EDC11",
+    nextClue: "clues/mjp.pdf"
   },
 
   "uvcig0": {
-    stage: "10",
-    pin: "EDC08",
-    nextClue: "clues/stage11.pdf"
+    stage: "IV",
+    pin: "EDC17",
+    nextClue: "clues/park.pdf"
   },
 
   "uvcig1": {
-    stage: "11",
-    pin: "EDC02",
-    nextClue: "clues/stage12.pdf"
+    stage: "FINAL",
+    pin: "EDC16",
+    nextClue: "clues/audi.pdf"
   },
 
   "vwdjh2": {
-    stage: "12",
-    pin: "EDC77",
-    nextClue: "clues/stage13.pdf"
-  },
-
-  "wxeki3": {
-    stage: "13",
-    pin: "EDC14",
-    nextClue: "clues/stage14.pdf"
-  },
-
-  "yzgmk4": {
-    stage: "14",
-    pin: "EDC06",
-    nextClue: "clues/stage15.pdf"
+    stage: "Rik",
+    pin: "EDC17",
+    nextClue: "clues/stage04.mp4"
   },
 
   // ---------- FINAL STAGE ----------
